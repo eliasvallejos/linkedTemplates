@@ -1,0 +1,1172 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "type": "string",
+            "metadata": "Data Factory name",
+            "defaultValue": "adf-rentabilizacionclientes-dev"
+        },
+        "ADbricks_DEV_accessToken": {
+            "type": "secureString",
+            "metadata": "Secure string for 'accessToken' of 'ADbricks_DEV'"
+        },
+        "HttpServer_Agendamiento_password": {
+            "type": "secureString",
+            "metadata": "Secure string for 'password' of 'HttpServer_Agendamiento'"
+        },
+        "LS_DATALAKE_DEV_accountKey": {
+            "type": "secureString",
+            "metadata": "Secure string for 'accountKey' of 'LS_DATALAKE_DEV'"
+        },
+        "LS_SQL_DEV_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'LS_SQL_DEV'"
+        },
+        "LS_SQL_DW_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'LS_SQL_DW'"
+        },
+        "Ftp BW_Alteryx_PRD_password": {
+            "type": "secureString",
+            "metadata": "Secure string for 'password' of 'Ftp BW_Alteryx_PRD'"
+        },
+        "LS_ODBC_SERGO_PRD_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'LS_ODBC_SERGO_PRD'"
+        },
+        "LS_ORACLE_GEOLOYALTY_PRD_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'LS_ORACLE_GEOLOYALTY_PRD'"
+        },
+        "LS_SQL_CONTACTABILIDAD_PE_PRD_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'LS_SQL_CONTACTABILIDAD_PE_PRD'"
+        },
+        "MySql_MKT_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'MySql_MKT'"
+        },
+        "AzureKeyVault_BIGDATA_properties_typeProperties_baseUrl": {
+            "type": "string",
+            "defaultValue": "https://productivo.vault.azure.net/"
+        },
+        "AzureKeyVault_Calidad_properties_typeProperties_baseUrl": {
+            "type": "string",
+            "defaultValue": "https://calidad.vault.azure.net/"
+        },
+        "HttpServer_Agendamiento_properties_typeProperties_url": {
+            "type": "string",
+            "defaultValue": "http://serviciotecnico.dercocenter.cl/WS/tickets2020/Dercocenter_agendamiento.asmx?WSDL"
+        },
+        "HttpServer_Agendamiento_properties_typeProperties_userName": {
+            "type": "string",
+            "defaultValue": "WS_DercocenterTickets"
+        },
+        "LS_AUTOPIA_QA_properties_typeProperties_url": {
+            "type": "string",
+            "defaultValue": "https://services-testing.autopia.cl/"
+        },
+        "LS_DATALAKE_DEV_properties_typeProperties_url": {
+            "type": "string",
+            "defaultValue": "https://srentclientes.dfs.core.windows.net"
+        },
+        "integrationRuntime1_properties_typeProperties_linkedInfo_resourceId": {
+            "type": "string",
+            "defaultValue": "/subscriptions/274b2c85-5080-4226-be7f-6d29997bd307/resourcegroups/inteligenciacorp/providers/Microsoft.DataFactory/factories/dfinteligenciacorp/integrationruntimes/integrationRuntime"
+        },
+        "redinternaderco_properties_typeProperties_linkedInfo_resourceId": {
+            "type": "string",
+            "defaultValue": "/subscriptions/274b2c85-5080-4226-be7f-6d29997bd307/resourcegroups/inteligenciacorp/providers/Microsoft.DataFactory/factories/dfinteligenciacorp/integrationruntimes/redInterna"
+        },
+        "Ftp BW_Alteryx_PRD_properties_typeProperties_host": {
+            "type": "string",
+            "defaultValue": "ftp1.derco.cl"
+        },
+        "Ftp BW_Alteryx_PRD_properties_typeProperties_userName": {
+            "type": "string",
+            "defaultValue": "sftpgcpscl"
+        },
+        "LS_SALESFORCE_PRD_properties_typeProperties_environmentUrl": {
+            "type": "string",
+            "defaultValue": "https://derco.my.salesforce.com/"
+        },
+        "LS_SALESFORCE_PRD_properties_typeProperties_username": {
+            "type": "string",
+            "defaultValue": "svc_datalake@derco.cl"
+        }
+    },
+    "variables": {
+        "factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('factoryName'), '/pipeline80097')]",
+            "type": "Microsoft.DataFactory/factories/pipelines",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "activities": [
+                    {
+                        "name": "Wait1",
+                        "description": "prueba con aprobacion",
+                        "type": "Wait",
+                        "dependsOn": [],
+                        "userProperties": [],
+                        "typeProperties": {
+                            "waitTimeInSeconds": 1
+                        }
+                    }
+                ],
+                "annotations": []
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/pipeline80098')]",
+            "type": "Microsoft.DataFactory/factories/pipelines",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "activities": [
+                    {
+                        "name": "Wait1",
+                        "description": "prueba con aprobacion",
+                        "type": "Wait",
+                        "dependsOn": [],
+                        "userProperties": [],
+                        "typeProperties": {
+                            "waitTimeInSeconds": 1
+                        }
+                    }
+                ],
+                "annotations": []
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/pipeline80099')]",
+            "type": "Microsoft.DataFactory/factories/pipelines",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "activities": [
+                    {
+                        "name": "Wait1",
+                        "description": "prueba con aprobacion",
+                        "type": "Wait",
+                        "dependsOn": [],
+                        "userProperties": [],
+                        "typeProperties": {
+                            "waitTimeInSeconds": 1
+                        }
+                    }
+                ],
+                "annotations": []
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/ADbricks_DEV')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureDatabricks",
+                "typeProperties": {
+                    "domain": "https://adb-8373741749014396.16.azuredatabricks.net",
+                    "accessToken": {
+                        "type": "SecureString",
+                        "value": "[parameters('ADbricks_DEV_accessToken')]"
+                    },
+                    "existingClusterId": "0723-214758-mains887"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/AzureKeyVault_BIGDATA')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureKeyVault",
+                "typeProperties": {
+                    "baseUrl": "[parameters('AzureKeyVault_BIGDATA_properties_typeProperties_baseUrl')]"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/AzureKeyVault_Calidad')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureKeyVault",
+                "typeProperties": {
+                    "baseUrl": "[parameters('AzureKeyVault_Calidad_properties_typeProperties_baseUrl')]"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/HttpServer_Agendamiento')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "HttpServer",
+                "typeProperties": {
+                    "url": "[parameters('HttpServer_Agendamiento_properties_typeProperties_url')]",
+                    "enableServerCertificateValidation": true,
+                    "authenticationType": "Basic",
+                    "userName": "[parameters('HttpServer_Agendamiento_properties_typeProperties_userName')]",
+                    "password": {
+                        "type": "SecureString",
+                        "value": "[parameters('HttpServer_Agendamiento_password')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/LS_AUTOPIA_QA')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "RestService",
+                "typeProperties": {
+                    "url": "[parameters('LS_AUTOPIA_QA_properties_typeProperties_url')]",
+                    "enableServerCertificateValidation": false,
+                    "authenticationType": "Anonymous"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/LS_DATALAKE_DEV')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureBlobFS",
+                "typeProperties": {
+                    "url": "[parameters('LS_DATALAKE_DEV_properties_typeProperties_url')]",
+                    "accountKey": {
+                        "type": "SecureString",
+                        "value": "[parameters('LS_DATALAKE_DEV_accountKey')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/LS_SQL_DEV')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureSqlDatabase",
+                "typeProperties": {
+                    "connectionString": "[parameters('LS_SQL_DEV_connectionString')]"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/LS_SQL_DW')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureSqlDatabase",
+                "typeProperties": {
+                    "connectionString": "[parameters('LS_SQL_DW_connectionString')]"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
+            "type": "Microsoft.DataFactory/factories/integrationRuntimes",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "type": "SelfHosted",
+                "typeProperties": {
+                    "linkedInfo": {
+                        "resourceId": "[parameters('integrationRuntime1_properties_typeProperties_linkedInfo_resourceId')]",
+                        "authorizationType": "Rbac"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/redinternaderco')]",
+            "type": "Microsoft.DataFactory/factories/integrationRuntimes",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "type": "SelfHosted",
+                "description": "Red Interna Derco",
+                "typeProperties": {
+                    "linkedInfo": {
+                        "resourceId": "[parameters('redinternaderco_properties_typeProperties_linkedInfo_resourceId')]",
+                        "authorizationType": "Rbac"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/DS_AMICAR')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "linkedServiceName": {
+                    "referenceName": "LS_DATALAKE_DEV",
+                    "type": "LinkedServiceReference"
+                },
+                "annotations": [],
+                "type": "Parquet",
+                "typeProperties": {
+                    "location": {
+                        "type": "AzureBlobFSLocation",
+                        "folderPath": "AMICAR/CREDITO/LATEST",
+                        "fileSystem": "curated"
+                    },
+                    "compressionCodec": "snappy"
+                },
+                "schema": [
+                    {
+                        "name": "codigo_local",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "rut_importadora",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "contador",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "id_credito",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "id_origen",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "fecha_creacion_cotizacion",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "hora_creacion_cotizacion",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fecha_formalizacion_cotizacion",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "hora_formalizacion_cotizacion",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fecha_creacion_solicitud",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "hora_creacion_solicitud",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "estado_credito",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "id_producto",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "nombre_producto",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fecha_otorgamiento",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "hora_otorgamiento",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fecha_cierre",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "nombre_importadora",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "nombre_local",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "rut_cliente",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "nombre_cliente",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fono_particular",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fono_comercial",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fono_celular",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "rut_vendedor",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "nombre_vendedor",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "rut_digitador",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "nombre_digitador",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "rut_ef",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "nombre_ef",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "rut_evaluador_ef",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "nombre_evaluador_ef",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "marca_vehiculo",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "modelo_vehiculo",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "ano_vehiculo",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "total_financiar",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "capital_final",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "valor_cuota",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "plazo",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "tasa",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "fecha_primer_vencimiento",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "recargos_dealer",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "recargos_ef",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "precio_vehiculo",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "contado",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "retoma",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "saldo",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "seguro_desgravamen",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "impuesto_pagare",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "valor_uf",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "tipo_cuota",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "interes_desfase",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "vfmg",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "fecha_pagare",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "numero_pagare",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "comision_dealer",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "fecha_pago_saldo_precio_ef",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "fecha_recepcion_documentos_ef",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "fecha_envio_a_ef",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "hora_envio_a_ef",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "tasa_dealer",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "fecha_adjudicacion",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "hora_adjudicacion",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "ef_propuesta",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "tipo_vehiculo",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "tipo_trabajador",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "sexo",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "estado_civil",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "total_ingresos",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "tipo_contrato",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "total_egresos",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "rut_compra_para",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "nombre_compra_para",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fecha_desistido",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "hora_desistido",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "motivo_desistimiento",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fecha_desadjudicacion",
+                        "type": "DATE"
+                    },
+                    {
+                        "name": "hora_desadjudicacion",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "modelo_endoso",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "recargo_accesorios",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "impuesto_verde",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "cliente_direccion",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "cliente_comuna",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "cliente_fecha_nacimiento",
+                        "type": "INT96"
+                    },
+                    {
+                        "name": "retoma_tipo_vehiculo",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "retoma_marca",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "retoma_modelo",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "retoma_anho",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "retoma_monto",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "email_cliente",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fecha_cierre_negocio",
+                        "type": "INT96"
+                    },
+                    {
+                        "name": "numero_pedido",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "ano_tributario",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "folio_consultar",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "codigo_158",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "estado_checklist",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "gasto_por_otorgamiento",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "chkbox_proteccion_neumaticos",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "proteccion_neumaticos",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "chkbox_garantia_mecanica",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "garantia_mecanica",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "chkbox_car_assist",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "car_assist",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "chkbox_recargos_dealer",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "chk_impuesto_verde",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "rut_ejecutivo_adjudica",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "nombre_ejecutivo_adjudica",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fecha_adjudicado_ejecutivo",
+                        "type": "INT96"
+                    },
+                    {
+                        "name": "hora_adjudicado_ejecutivo",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "tasa_marca",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "monto_comision_marca",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "chkbox_robo_contenido",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "robo_contenido",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "chkbox_servicio_adicional",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "servicio_adicional",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "monto_seguro_doble_capital",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "checkbox_mantencion",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "tipo_mantencion",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "monto_mantencion",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "tasa_piso_ofertada",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "tasa_dealer_adj",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "fecha_curse_cotizacion",
+                        "type": "INT96"
+                    },
+                    {
+                        "name": "fecha_checklist_log_confirmacion",
+                        "type": "INT96"
+                    },
+                    {
+                        "name": "hora_checklist_log_confirmacion",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "rut_usuario_log_confirmacion",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "nombre_usuario_log_confirmacion",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "total_financiar_respaldo",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "chkbox_trimax",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "trimax",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "chkbox_viaje",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "viaje",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "chkbox_cuota_protegida",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "cuota_protegida",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "factor_seguro_cesantia",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "seguro_cesantia",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "retoma_prepago",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "factor_seguro_desgravamen_tramo",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "monto_seguro_desgravamen_tramo",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "factor_seguro_vida_tramo",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "monto_seguro_vida_tramo",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "factor_seguro_desgravamen",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "name": "tipo_residencia",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "n_cargas",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "anios_residencia",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "meses_residencia",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "tipo_actividad",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "cargo",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fecha_ingreso_empleo",
+                        "type": "INT96"
+                    },
+                    {
+                        "name": "rut_empleador",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "nombre_empleador",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "direccion_empleador",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "rubro_empleador",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "region_empleador",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "comuna_empleador",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "fono_empleador",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "nombre_empleador_anterior",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "anios_permanencia_emppleo_anterior",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "fono_empleador_anterior",
+                        "type": "UTF8"
+                    },
+                    {
+                        "name": "estado_cotizado",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "estado_evaluados",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "estado_desistido",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "estado_desadjudicacion",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "estado_adjudicado",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "estado_aprobacion",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "estado_condicionado",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "estado_rechazado",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "estado_noaccesado",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "estado_caducado",
+                        "type": "INT32"
+                    },
+                    {
+                        "name": "anio",
+                        "type": "UTF8"
+                    }
+                ]
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/linkedServices/LS_DATALAKE_DEV')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/Ftp BW_Alteryx_PRD')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "description": "Datos BW procesados con Alteryx",
+                "annotations": [],
+                "type": "FtpServer",
+                "typeProperties": {
+                    "host": "[parameters('Ftp BW_Alteryx_PRD_properties_typeProperties_host')]",
+                    "port": 21,
+                    "enableSsl": true,
+                    "enableServerCertificateValidation": false,
+                    "authenticationType": "Basic",
+                    "userName": "[parameters('Ftp BW_Alteryx_PRD_properties_typeProperties_userName')]",
+                    "password": {
+                        "type": "SecureString",
+                        "value": "[parameters('Ftp BW_Alteryx_PRD_password')]"
+                    }
+                },
+                "connectVia": {
+                    "referenceName": "redinternaderco",
+                    "type": "IntegrationRuntimeReference"
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/integrationRuntimes/redinternaderco')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/LS_ODBC_SERGO_PRD')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "Odbc",
+                "typeProperties": {
+                    "connectionString": {
+                        "type": "SecureString",
+                        "value": "[parameters('LS_ODBC_SERGO_PRD_connectionString')]"
+                    },
+                    "authenticationType": "Anonymous"
+                },
+                "connectVia": {
+                    "referenceName": "integrationRuntime1",
+                    "type": "IntegrationRuntimeReference"
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/LS_ORACLE_GEOLOYALTY_PRD')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "Oracle",
+                "typeProperties": {
+                    "connectionString": "[parameters('LS_ORACLE_GEOLOYALTY_PRD_connectionString')]",
+                    "password": {
+                        "type": "AzureKeyVaultSecret",
+                        "store": {
+                            "referenceName": "AzureKeyVault_BIGDATA",
+                            "type": "LinkedServiceReference"
+                        },
+                        "secretName": "GEO-LOY-DLake"
+                    }
+                },
+                "connectVia": {
+                    "referenceName": "redinternaderco",
+                    "type": "IntegrationRuntimeReference"
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/integrationRuntimes/redinternaderco')]",
+                "[concat(variables('factoryId'), '/linkedServices/AzureKeyVault_BIGDATA')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/LS_SALESFORCE_PRD')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "Salesforce",
+                "typeProperties": {
+                    "environmentUrl": "[parameters('LS_SALESFORCE_PRD_properties_typeProperties_environmentUrl')]",
+                    "username": "[parameters('LS_SALESFORCE_PRD_properties_typeProperties_username')]",
+                    "password": {
+                        "type": "AzureKeyVaultSecret",
+                        "store": {
+                            "referenceName": "AzureKeyVault_BIGDATA",
+                            "type": "LinkedServiceReference"
+                        },
+                        "secretName": "SF-ACC-DataLake"
+                    },
+                    "securityToken": {
+                        "type": "AzureKeyVaultSecret",
+                        "store": {
+                            "referenceName": "AzureKeyVault_BIGDATA",
+                            "type": "LinkedServiceReference"
+                        },
+                        "secretName": "SF-TKN-DataLake"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/linkedServices/AzureKeyVault_BIGDATA')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/LS_SQL_CONTACTABILIDAD_PE_PRD')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "SqlServer",
+                "typeProperties": {
+                    "connectionString": "[parameters('LS_SQL_CONTACTABILIDAD_PE_PRD_connectionString')]"
+                },
+                "connectVia": {
+                    "referenceName": "redinternaderco",
+                    "type": "IntegrationRuntimeReference"
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/integrationRuntimes/redinternaderco')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/MySql_MKT')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "MySql",
+                "typeProperties": {
+                    "connectionString": "[parameters('MySql_MKT_connectionString')]"
+                },
+                "connectVia": {
+                    "referenceName": "integrationRuntime1",
+                    "type": "IntegrationRuntimeReference"
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+            ]
+        }
+    ]
+}

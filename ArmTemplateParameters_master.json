@@ -1,0 +1,99 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "value": "adf-rentabilizacionclientes-dev"
+        },
+        "ADbricks_DEV_accessToken": {
+            "value": ""
+        },
+        "Ftp BW_Alteryx_PRD_password": {
+            "value": ""
+        },
+        "HttpServer_Agendamiento_password": {
+            "value": ""
+        },
+        "LS_DATALAKE_DEV_accountKey": {
+            "value": ""
+        },
+        "LS_ODBC_SERGO_PRD_connectionString": {
+            "value": ""
+        },
+        "LS_ORACLE_GEOLOYALTY_PRD_connectionString": {
+            "value": ""
+        },
+        "LS_SQL_CONTACTABILIDAD_PE_PRD_connectionString": {
+            "value": ""
+        },
+        "LS_SQL_DEV_connectionString": {
+            "value": ""
+        },
+        "LS_SQL_DW_connectionString": {
+            "value": ""
+        },
+        "MySql_MKT_connectionString": {
+            "value": ""
+        },
+        "SapHanaRTP_connectionString": {
+            "value": ""
+        },
+        "SapHanaVMP_connectionString": {
+            "value": ""
+        },
+        "SQL_GCD_connectionString": {
+            "value": ""
+        },
+        "VM_QA_connectionString": {
+            "value": ""
+        },
+        "AzureKeyVault_BIGDATA_properties_typeProperties_baseUrl": {
+            "value": "https://productivo.vault.azure.net/"
+        },
+        "AzureKeyVault_Calidad_properties_typeProperties_baseUrl": {
+            "value": "https://calidad.vault.azure.net/"
+        },
+        "Ftp BW_Alteryx_PRD_properties_typeProperties_host": {
+            "value": "ftp1.derco.cl"
+        },
+        "Ftp BW_Alteryx_PRD_properties_typeProperties_userName": {
+            "value": "sftpgcpscl"
+        },
+        "HttpServer_Agendamiento_properties_typeProperties_url": {
+            "value": "http://serviciotecnico.dercocenter.cl/WS/tickets2020/Dercocenter_agendamiento.asmx?WSDL"
+        },
+        "HttpServer_Agendamiento_properties_typeProperties_userName": {
+            "value": "WS_DercocenterTickets"
+        },
+        "LS_AUTOPIA_QA_properties_typeProperties_url": {
+            "value": "https://services-testing.autopia.cl/"
+        },
+        "LS_DATALAKE_DEV_properties_typeProperties_url": {
+            "value": "https://srentclientes.dfs.core.windows.net"
+        },
+        "LS_SALESFORCE_PRD_properties_typeProperties_environmentUrl": {
+            "value": "https://derco.my.salesforce.com/"
+        },
+        "LS_SALESFORCE_PRD_properties_typeProperties_username": {
+            "value": "svc_datalake@derco.cl"
+        },
+        "Sftp_AMICAR_PRD_properties_typeProperties_host": {
+            "value": "191.102.35.37"
+        },
+        "Sftp_AMICAR_PRD_properties_typeProperties_userName": {
+            "value": "Sftpdercochile"
+        },
+        "integrationRuntime1_properties_typeProperties_linkedInfo_resourceId": {
+            "value": "/subscriptions/274b2c85-5080-4226-be7f-6d29997bd307/resourcegroups/inteligenciacorp/providers/Microsoft.DataFactory/factories/dfinteligenciacorp/integrationruntimes/integrationRuntime"
+        },
+        "redinternaderco_properties_typeProperties_linkedInfo_resourceId": {
+            "value": "/subscriptions/274b2c85-5080-4226-be7f-6d29997bd307/resourcegroups/inteligenciacorp/providers/Microsoft.DataFactory/factories/dfinteligenciacorp/integrationruntimes/redInterna"
+        },
+        "containerUri": {
+            "value": ""
+        },
+        "containerSasToken": {
+            "value": ""
+        }
+    }
+}

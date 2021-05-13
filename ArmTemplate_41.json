@@ -1,0 +1,163 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "type": "string",
+            "metadata": "Data Factory name",
+            "defaultValue": "adf-rentabilizacionclientes-dev"
+        },
+        "SapHanaRTP_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'SapHanaRTP'"
+        },
+        "SapHanaVMP_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'SapHanaVMP'"
+        },
+        "SQL_GCD_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'SQL_GCD'"
+        },
+        "VM_QA_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'VM_QA'"
+        },
+        "Sftp_AMICAR_PRD_properties_typeProperties_host": {
+            "type": "string",
+            "defaultValue": "191.102.35.37"
+        },
+        "Sftp_AMICAR_PRD_properties_typeProperties_userName": {
+            "type": "string",
+            "defaultValue": "Sftpdercochile"
+        }
+    },
+    "variables": {
+        "factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('factoryName'), '/SapHanaRTP')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "SapHana",
+                "typeProperties": {
+                    "connectionString": "[parameters('SapHanaRTP_connectionString')]",
+                    "password": {
+                        "type": "AzureKeyVaultSecret",
+                        "store": {
+                            "referenceName": "AzureKeyVault_BIGDATA",
+                            "type": "LinkedServiceReference"
+                        },
+                        "secretName": "SAP-RTP-DLake"
+                    }
+                },
+                "connectVia": {
+                    "referenceName": "redinternaderco",
+                    "type": "IntegrationRuntimeReference"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/SapHanaVMP')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "description": "Conexión SAP Automotive PRD",
+                "annotations": [],
+                "type": "SapHana",
+                "typeProperties": {
+                    "connectionString": "[parameters('SapHanaVMP_connectionString')]",
+                    "password": {
+                        "type": "AzureKeyVaultSecret",
+                        "store": {
+                            "referenceName": "AzureKeyVault_BIGDATA",
+                            "type": "LinkedServiceReference"
+                        },
+                        "secretName": "SAP-VMP-DLake"
+                    }
+                },
+                "connectVia": {
+                    "referenceName": "redinternaderco",
+                    "type": "IntegrationRuntimeReference"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/Sftp_AMICAR_PRD')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "Sftp",
+                "typeProperties": {
+                    "host": "[parameters('Sftp_AMICAR_PRD_properties_typeProperties_host')]",
+                    "port": 22,
+                    "skipHostKeyValidation": true,
+                    "authenticationType": "Basic",
+                    "userName": "[parameters('Sftp_AMICAR_PRD_properties_typeProperties_userName')]",
+                    "password": {
+                        "type": "AzureKeyVaultSecret",
+                        "store": {
+                            "referenceName": "AzureKeyVault_BIGDATA",
+                            "type": "LinkedServiceReference"
+                        },
+                        "secretName": "AMI-CAR-PRD"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/SQL_GCD')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "SqlServer",
+                "typeProperties": {
+                    "connectionString": "[parameters('SQL_GCD_connectionString')]",
+                    "password": {
+                        "type": "AzureKeyVaultSecret",
+                        "store": {
+                            "referenceName": "AzureKeyVault_BIGDATA",
+                            "type": "LinkedServiceReference"
+                        },
+                        "secretName": "GCD-PRD-Dlake"
+                    }
+                },
+                "connectVia": {
+                    "referenceName": "redinternaderco",
+                    "type": "IntegrationRuntimeReference"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/VM_QA')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "description": "Voucher Manager",
+                "annotations": [],
+                "type": "AzurePostgreSql",
+                "typeProperties": {
+                    "connectionString": "[parameters('VM_QA_connectionString')]",
+                    "password": {
+                        "type": "AzureKeyVaultSecret",
+                        "store": {
+                            "referenceName": "AzureKeyVault_Calidad",
+                            "type": "LinkedServiceReference"
+                        },
+                        "secretName": "VM-QAS-DataLake"
+                    }
+                }
+            },
+            "dependsOn": []
+        }
+    ]
+}
